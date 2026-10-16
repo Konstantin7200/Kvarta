@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кварта — logo mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#F7F3EA; --surface:#FFFDF8; --ink:#221B14; --brown:#6B4429;
+         --tan:#E7D8C8; --espresso:#2A1F17; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:Onest,sans-serif;padding:24px 14px 48px;-webkit-font-smoothing:antialiased}
+  .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown);margin:26px 0 10px;max-width:960px;margin-inline:auto}
+  .box{max-width:960px;margin:0 auto;background:var(--surface);border:1px solid var(--tan);border-radius:14px;overflow:hidden}
+  .pad{padding:20px 24px}
+
+  .nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--tan)}
+  .nav ul{display:flex;gap:18px;list-style:none;font-size:13.5px}
+  .nav a{color:var(--brown);text-decoration:none}
+
+  .hero{padding:34px 24px 30px}
+  .wordmark{font-family:Unbounded;font-weight:700;font-size:64px;line-height:1;letter-spacing:-.01em}
+  .tagline{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brown);margin-top:14px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .cell{padding:26px 24px;border-top:1px solid var(--tan)}
+  .cell + .cell{border-left:1px solid var(--tan)}
+  .cell .cap{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin-bottom:12px}
+  .w{font-family:Unbounded;line-height:1}
+  .w.a{font-weight:800;font-size:22px;letter-spacing:.07em}
+  .w.b{font-weight:700;font-size:34px}
+  .w.c{font-weight:700;font-size:56px}
+
+  .dark{background:var(--espresso);color:var(--paper)}
+  .dark .cap{color:#A89A8C}
+  .row{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+  .note{max-width:960px;margin:20px auto 0;font-size:12.5px;color:var(--brown);line-height:1.55}
+</style>
+</head>
+<body>
+
+<div class="lbl">1 · хедер (800 caps) + герой (700 mixed)</div>
+<div class="box">
+  <div class="nav pad">
+    <div class="w a">КВАРТА</div>
+    <ul><li>Ассортимент</li><li>Подписка</li><li>Доставка</li><li>Контакты</li></ul>
+  </div>
+  <div class="hero">
+    <div class="wordmark">Кварта</div>
+    <div class="tagline">обжарка кофе · Минск · партиями по 5 кг с 2019</div>
+  </div>
+</div>
+
+<div class="lbl">2 · размеры (тот же логотип, три ступени)</div>
+<div class="box pad">
+  <div class="grid" style="border:0">
+    <div class="cell" style="border-top:0;border-left:0">
+      <div class="cap">хедер · 800 CAPS</div>
+      <div class="w a">КВАРТА</div>
+    </div>
+    <div class="cell" style="border-top:0">
+      <div class="cap">средний · 700</div>
+      <div class="w b">Кварта</div>
+    </div>
+    <div class="cell" style="border-top:0">
+      <div class="cap">герой/футер · 700</div>
+      <div class="w c">Кварта</div>
+    </div>
+  </div>
+</div>
+
+<div class="lbl">3 · на тёмном (демо, палитру не решаем)</div>
+<div class="box dark pad">
+  <div class="row">
+    <div>
+      <div class="cap">хедер · 800 CAPS</div>
+      <div class="w a">КВАРТА</div>
+    </div>
+    <div>
+      <div class="cap">крупный · 700</div>
+      <div class="w c">Кварта</div>
+    </div>
+  </div>
+</div>
+
+<p class="note">
+  Логотип живой (текст), не картинка: в хедере — 800 CAPS с трекингом, крупно — 700 mixed.
+  Без дополнительных знаков — только слово.
+</p>
+
+</body>
+</html>

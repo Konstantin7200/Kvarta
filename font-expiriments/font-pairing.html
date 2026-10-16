@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кварта — Unbounded + Nunito vs Unbounded + Onest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;800&family=Nunito:wght@400;600;700;800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --surface:#FFFDF8; --ink:#221B14; --brown:#6B4429;
+    --tan:#E7D8C8; --accent:#B14A2A; --espresso:#2A1F17; --honey:#D99A2B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);padding:28px 14px 60px;-webkit-font-smoothing:antialiased}
+  .head{max-width:1160px;margin:0 auto 22px}
+  .head h1{font-size:24px;font-weight:700;font-family:Onest,sans-serif}
+  .head p{font-family:Onest,sans-serif;font-size:14.5px;color:var(--brown);margin-top:6px;max-width:78ch}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px;max-width:1160px;margin:0 auto}
+  .col{background:var(--surface);border:1px solid var(--tan);border-radius:16px;overflow:hidden}
+  .col>.cap{font-family:Onest,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brown);padding:12px 20px;background:var(--tan)}
+  .col>.cap b{color:var(--ink)}
+  .page{padding:22px 22px 26px}
+
+  /* shared blocks */
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+  .brand{font-size:22px;letter-spacing:.06em}
+  .nav ul{display:flex;gap:16px;list-style:none;font-size:13.5px}
+  .nav a{color:var(--brown);text-decoration:none}
+  .h1{font-size:31px;line-height:1.15;font-weight:800;letter-spacing:-.01em;margin-bottom:12px}
+  .sub{font-size:15.5px;line-height:1.6;color:#4A4038;margin-bottom:18px;max-width:44ch}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-size:14px;font-weight:700;
+       padding:13px 22px;border-radius:10px;text-decoration:none;letter-spacing:.04em}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--tan);margin-left:8px}
+  .sect-lbl{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);margin:28px 0 10px}
+  .h2{font-size:21px;font-weight:700;line-height:1.25;margin-bottom:14px}
+  .card{border:1px solid var(--tan);border-radius:12px;padding:16px 16px 18px;background:var(--paper)}
+  .card h3{font-size:18px;font-weight:700;margin-bottom:4px}
+  .card .notes{font-size:14px;color:#4A4038;margin-bottom:10px}
+  .card .price{font-size:17px;font-weight:700;color:var(--accent)}
+  .card .price span{color:var(--brown);font-weight:500;font-size:13.5px}
+  .form{margin-top:8px;border-top:1px solid var(--tan);padding-top:20px}
+  .field{margin-bottom:12px}
+  .field label{display:block;font-size:13px;color:var(--brown);margin-bottom:5px;font-weight:600}
+  .field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--tan);border-radius:9px;
+    background:var(--surface);font-size:15px;color:var(--ink)}
+  .field input::placeholder{color:#A89A8C}
+  .btn.full{display:block;width:100%;text-align:center;margin-top:6px;border:0;cursor:pointer}
+  .hint{font-size:12.5px;color:var(--brown);margin-top:8px}
+  .foot{background:var(--espresso);color:var(--paper);padding:20px 22px;display:flex;
+        justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .foot .b{font-size:18px;letter-spacing:.06em;color:var(--paper)}
+  .foot .a{font-size:13.5px;color:#C9BDAE}
+  .foot .a b{color:var(--honey);font-weight:600}
+
+  .logos{display:flex;gap:26px;flex-wrap:wrap;max-width:1160px;margin:26px auto 0;background:var(--surface);
+         border:1px solid var(--tan);border-radius:16px;padding:20px 22px;align-items:flex-end}
+  .logos .item .cap{font-family:Onest,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+                    color:var(--brown);margin-bottom:8px}
+  .logos .l{font-size:34px}
+  .note{font-family:Onest,sans-serif;font-size:13px;color:var(--brown);margin-top:22px;max-width:1160px;margin-inline:auto}
+</style>
+</head>
+<body>
+
+<div class="head">
+  <h1>Финальные пары: Unbounded + Nunito ↔ Unbounded + Onest</h1>
+  <p>Та же палитра (крем/эспрессо/ржавчина), реальные блоки лендинга: герой, карточка,
+     форма заявки, футер. Дисплей везде Unbounded — сравниваем только обычный текст и общий характер.</p>
+</div>
+
+<div class="cols">
+
+  <!-- VARIANT A: Unbounded + Nunito -->
+  <div class="col">
+    <div class="cap">A · <b>Unbounded</b> (лого/H1/H2) + <b>Nunito</b> (текст)</div>
+    <div class="page">
+      <div class="nav">
+        <div class="brand" style="font-family:Unbounded;font-weight:700">КВАРТА</div>
+        <ul style="font-family:Nunito">
+          <li><a href="#">Ассортимент</a></li>
+          <li><a href="#">Подписка</a></li>
+          <li><a href="#">Доставка</a></li>
+        </ul>
+      </div>
+      <div class="h1" style="font-family:Unbounded">Жарим по четвергам — в пятницу привозим</div>
+      <div class="sub" style="font-family:Nunito">Маленькая мастерская в Минске: партии по 5 кг, зерно у вас на 1–3 день после обжарки.</div>
+      <a class="btn" href="#" style="font-family:Nunito">Оставить заявку</a>
+      <a class="btn ghost" href="#" style="font-family:Nunito">Смотреть ассортимент</a>
+
+      <div class="sect-lbl" style="font-family:Nunito">01 — ассортимент</div>
+      <div class="h2" style="font-family:Unbounded">Свежесть — главное, что мы продаём</div>
+      <div class="card">
+        <h3 style="font-family:Unbounded;font-size:16px">Эфиопия Иргачеффе</h3>
+        <div class="notes" style="font-family:Nunito">цветочный, бергамот · светлая обжарка</div>
+        <div class="price" style="font-family:Unbounded">250 г — 32 BYN <span style="font-family:Nunito">/ обычно 36 BYN</span></div>
+      </div>
+
+      <div class="form">
+        <div class="sect-lbl" style="font-family:Nunito">заявка — 30 секунд</div>
+        <div class="h2" style="font-family:Unbounded;font-size:18px">Перезвоним и всё оформим</div>
+        <div class="field"><label style="font-family:Nunito">Имя</label><input style="font-family:Nunito" placeholder="Аня"></div>
+        <div class="field"><label style="font-family:Nunito">Телефон</label><input style="font-family:Nunito" placeholder="+375 (__) ___-__-__"></div>
+        <div class="field"><label style="font-family:Nunito">Что интересует</label>
+          <select style="font-family:Nunito"><option>Подписка — 54 BYN/мес</option></select></div>
+        <button class="btn full" style="font-family:Nunito">Отправить заявку</button>
+        <div class="hint" style="font-family:Nunito">Звоним в рабочее время: пн–пт 8:00–20:00 · обычно в тот же день</div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="b" style="font-family:Unbounded">КВАРТА</div>
+      <div class="a" style="font-family:Nunito">Минск, ул. Короля, 9 · <b>пн–пт 8:00–20:00</b></div>
+    </div>
+  </div>
+
+  <!-- VARIANT B: Unbounded + Onest -->
+  <div class="col">
+    <div class="cap">B · <b>Unbounded</b> (лого/H1/H2) + <b>Onest</b> (текст)</div>
+    <div class="page">
+      <div class="nav">
+        <div class="brand" style="font-family:Unbounded;font-weight:700">КВАРТА</div>
+        <ul style="font-family:Onest">
+          <li><a href="#">Ассортимент</a></li>
+          <li><a href="#">Подписка</a></li>
+          <li><a href="#">Доставка</a></li>
+        </ul>
+      </div>
+      <div class="h1" style="font-family:Unbounded">Жарим по четвергам — в пятницу привозим</div>
+      <div class="sub" style="font-family:Onest">Маленькая мастерская в Минске: партии по 5 кг, зерно у вас на 1–3 день после обжарки.</div>
+      <a class="btn" href="#" style="font-family:Onest">Оставить заявку</a>
+      <a class="btn ghost" href="#" style="font-family:Onest">Смотреть ассортимент</a>
+
+      <div class="sect-lbl" style="font-family:Onest">01 — ассортимент</div>
+      <div class="h2" style="font-family:Unbounded">Свежесть — главное, что мы продаём</div>
+      <div class="card">
+        <h3 style="font-family:Unbounded;font-size:16px">Эфиопия Иргачеффе</h3>
+        <div class="notes" style="font-family:Onest">цветочный, бергамот · светлая обжарка</div>
+        <div class="price" style="font-family:Unbounded">250 г — 32 BYN <span style="font-family:Onest">/ обычно 36 BYN</span></div>
+      </div>
+
+      <div class="form">
+        <div class="sect-lbl" style="font-family:Onest">заявка — 30 секунд</div>
+        <div class="h2" style="font-family:Unbounded;font-size:18px">Перезвоним и всё оформим</div>
+        <div class="field"><label style="font-family:Onest">Имя</label><input style="font-family:Onest" placeholder="Аня"></div>
+        <div class="field"><label style="font-family:Onest">Телефон</label><input style="font-family:Onest" placeholder="+375 (__) ___-__-__"></div>
+        <div class="field"><label style="font-family:Onest">Что интересует</label>
+          <select style="font-family:Onest"><option>Подписка — 54 BYN/мес</option></select></div>
+        <button class="btn full" style="font-family:Onest">Отправить заявку</button>
+        <div class="hint" style="font-family:Onest">Звоним в рабочее время: пн–пт 8:00–20:00 · обычно в тот же день</div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="b" style="font-family:Unbounded">КВАРТА</div>
+      <div class="a" style="font-family:Onest">Минск, ул. Короля, 9 · <b>пн–пт 8:00–20:00</b></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="logos">
+  <div class="item">
+    <div class="cap">Unbounded 700 · CAPS</div>
+    <div class="l" style="font-family:Unbounded;font-weight:700;letter-spacing:.08em">КВАРТА</div>
+  </div>
+  <div class="item">
+    <div class="cap">Unbounded 800 · CAPS</div>
+    <div class="l" style="font-family:Unbounded;font-weight:800;letter-spacing:.08em">КВАРТА</div>
+  </div>
+  <div class="item">
+    <div class="cap">Unbounded 700 · mixed</div>
+    <div class="l" style="font-family:Unbounded;font-weight:700">Кварта</div>
+  </div>
+  <div class="item">
+    <div class="cap">Unbounded 700 · lowercase</div>
+    <div class="l" style="font-family:Unbounded;font-weight:700">кварта</div>
+  </div>
+</div>
+
+<p class="note">
+  Решение по «strange letters»: смотрите строку логотипа сверху — CAPS vs mixed vs lowercase.
+  Система зафиксирована: Unbounded (лого/заголовки) + Onest (текст), без третьего шрифта.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кварта — font candidates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700;800&family=Caveat:wght@400;700&family=Comfortaa:wght@400;700&family=Dela+Gothic+One&family=El+Messiri:wght@400;600;700&family=Great+Vibes&family=Lobster&family=Nunito:wght@400;600;700;800&family=Onest:wght@400;500;600;700&family=Oranienbaum&family=Unbounded:wght@400;700;800&family=Yeseva+One&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --surface:#FFFDF8; --ink:#221B14;
+    --brown:#6B4429; --tan:#E7DCC8; --accent:#B14A2A; --espresso:#2A1F17;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:Onest,Arial,sans-serif;font-size:16px;line-height:1.6;padding:32px 16px 64px}
+  .wrap{max-width:1080px;margin:0 auto}
+  header.page{max-width:1080px;margin:0 auto 28px}
+  header.page h1{font-size:26px;font-weight:700;letter-spacing:-.01em}
+  header.page p{color:var(--brown);font-size:15px;max-width:70ch;margin-top:6px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:var(--tan);color:var(--ink);font-size:12px;padding:4px 10px;border-radius:999px}
+  .chip.ok{background:#DCE7CF}
+  .chip.no{background:#F0D8CE}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+  .card{background:var(--surface);border:1px solid var(--tan);border-radius:14px;padding:22px 20px 24px}
+  .card .name{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+  .card .name b{font-size:14px;font-weight:600;letter-spacing:.02em}
+  .card .name span{font-size:11.5px;color:var(--brown)}
+  .logo{font-size:40px;line-height:1.05;margin-bottom:4px}
+  .tag{font-family:Onest,sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);margin-bottom:18px}
+  .h1{font-size:30px;line-height:1.15;font-weight:700;margin-bottom:12px}
+  .h2{font-size:21px;line-height:1.25;font-weight:700;margin-bottom:12px}
+  .price{font-size:17px;font-weight:600;color:var(--accent);margin-bottom:14px}
+  .body{font-family:Onest,sans-serif;font-size:14.5px;line-height:1.6;color:#4A4038}
+  .lbl{font-family:Onest,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown);margin-bottom:10px}
+  .rule{border:0;border-top:1px solid var(--tan);margin:16px 0}
+  section.strip{margin-top:36px;background:var(--espresso);border-radius:14px;padding:26px 24px;color:var(--paper)}
+  section.strip h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#D99A2B;font-family:Onest,sans-serif;font-weight:600;margin-bottom:18px}
+  .strip-row{display:flex;flex-wrap:wrap;gap:28px;align-items:baseline}
+  .strip-row .item{flex:1;min-width:240px}
+  .strip-row .cap{font-family:Onest,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#A89A8C;margin-bottom:6px}
+  .strip-row .sample{font-size:26px;line-height:1.3}
+  footer{margin-top:28px;font-size:12.5px;color:var(--brown)}
+  .dark-logo{color:var(--paper)}
+</style>
+</head>
+<body>
+<header class="page">
+  <h1>Кварта — candidates: logo / headers</h1>
+  <p>Одинаковый русский текст из ТЗ, размеры как на телефоне: логотип 40px, H1 30px, H2 21px.
+     Всю «обычную» текстовую часть везде рисует Onest — сравниваем только дисплейный шрифт.</p>
+  <div class="legend">
+    <span class="chip ok">Cyrillic ✓ у всех</span>
+    <span class="chip">тёплый = мягкие формы / средний контраст</span>
+    <span class="chip no">отбраковка: шаблонность, 1 вес, премиальный глянец</span>
+  </div>
+</header>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="name"><b>1 · Unbounded</b><span>700/800 · ваш выбор</span></div>
+    <div class="logo" style="font-family:Unbounded;font-weight:700">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:Unbounded;font-weight:700">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:Unbounded;font-weight:700">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:Unbounded;font-weight:700">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>2 · El Messiri</b><span>600/700 · ваша находка</span></div>
+    <div class="logo" style="font-family:'El Messiri';font-weight:700">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:'El Messiri';font-weight:700">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:'El Messiri';font-weight:600">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:'El Messiri';font-weight:600">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>3 · Alegreya</b><span>700/800 · вам нравится</span></div>
+    <div class="logo" style="font-family:Alegreya;font-weight:800">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:Alegreya;font-weight:800">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:Alegreya;font-weight:700">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:Alegreya;font-weight:700">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>4 · Dela Gothic One</b><span>400 · ваша находка</span></div>
+    <div class="logo" style="font-family:'Dela Gothic One';font-size:34px">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:'Dela Gothic One';font-weight:400;font-size:24px">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:'Dela Gothic One';font-weight:400;font-size:17px">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:'Dela Gothic One';font-size:15px">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>5 · Nunito 800</b><span>округлый гротеск</span></div>
+    <div class="logo" style="font-family:Nunito;font-weight:800">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:Nunito;font-weight:800">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:Nunito;font-weight:700">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:Nunito;font-weight:700">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>6 · Comfortaa 700</b><span>максимально скруглённый</span></div>
+    <div class="logo" style="font-family:Comfortaa;font-weight:700">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:Comfortaa;font-weight:700;font-size:26px">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:Comfortaa;font-weight:700;font-size:19px">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:Comfortaa;font-weight:700">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>7 · Lobster</b><span>400 · ваша находка</span></div>
+    <div class="logo" style="font-family:Lobster">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:Lobster;font-weight:400;font-size:26px">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:Lobster;font-weight:400;font-size:19px">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:Lobster;font-size:17px">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>8 · Oranienbaum</b><span>400 · «норм, но меньше нравится»</span></div>
+    <div class="logo" style="font-family:Oranienbaum;font-weight:400">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:Oranienbaum;font-weight:400;font-size:32px">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:Oranienbaum;font-weight:400;font-size:23px">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:Oranienbaum">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+  <div class="card">
+    <div class="name"><b>9 · Yeseva One</b><span>400 · тёплый декоративный</span></div>
+    <div class="logo" style="font-family:'Yeseva One'">Кварта</div>
+    <div class="tag">обжарка кофе · Минск · с 2019</div>
+    <div class="h1" style="font-family:'Yeseva One';font-size:28px">Жарим по четвергам — в пятницу привозим</div>
+    <div class="h2" style="font-family:'Yeseva One';font-size:20px">Свежесть — главное, что мы продаём</div>
+    <div class="price" style="font-family:'Yeseva One'">Колумбия Уила · 250 г — 29 BYN</div>
+    <hr class="rule">
+    <div class="body">Маленькая мастерская: обжариваем партиями по 5 кг с 2019 года. Аня и Дмитрий раньше работали бариста.</div>
+  </div>
+
+</div>
+
+<section class="strip">
+  <h2>Рукописные акценты (не системный шрифт — только пометки)</h2>
+  <div class="strip-row">
+    <div class="item">
+      <div class="cap">Caveat 700</div>
+      <div class="sample" style="font-family:Caveat;font-weight:700">«в пятницу возим по Минску сам»</div>
+    </div>
+    <div class="item">
+      <div class="cap">Great Vibes (ваша находка)</div>
+      <div class="sample" style="font-family:'Great Vibes'">свежесть — главное</div>
+    </div>
+    <div class="item">
+      <div class="cap">тёмный фон: Unbounded 700</div>
+      <div class="sample dark-logo" style="font-family:Unbounded;font-weight:700">Кварта</div>
+    </div>
+    <div class="item">
+      <div class="cap">тёмный фон: El Messiri 700</div>
+      <div class="sample dark-logo" style="font-family:'El Messiri';font-weight:700">Кварта</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Шрифты грузятся с Google Fonts (нужен интернет). Если карточка выглядит системным шрифтом —
+  кириллицы в ней нет или шрифт ещё грузится, обновите страницу.
+</footer>
+</body>
+</html>
