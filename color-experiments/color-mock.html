@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кварта — color directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:         #F7F3EA;
+    --surface:       #FFFDF8;
+    --ink:           #221B14;
+    --espresso:      #2A1F17;
+    --espresso-soft: #3A2C21;
+    --brown:         #6B4429;
+    --muted:         #6E6155;
+    --tan:           #E7D8C8;
+    --line-strong:   #C9B49A;
+    --accent:        #C05621;
+    --accent-hover:  #A3481B;
+    --honey:         #D99A2B;
+    --error:         #9B2C2C;
+
+    /* accent candidates — toggled from JS */
+    --accent-a: #B14A2A;
+    --accent-b: #9E3B22;
+    --accent-c: #C05621;
+    --accent-current: var(--accent-c);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Onest, system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- section chrome ---------- */
+  section { padding: 64px 0; }
+  section + section { border-top: 1px solid var(--tan); }
+
+  .kicker {
+    font-family: Unbounded, sans-serif;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  h2.sec-title {
+    font-family: Unbounded, sans-serif;
+    font-size: 28px; font-weight: 700; line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .sec-note { color: var(--muted); font-size: 15px; max-width: 640px; margin-bottom: 32px; }
+  .sec-note strong { color: var(--ink); }
+
+  /* ---------- demo hero (light-first) ---------- */
+  .hero {
+    background: var(--paper);
+    padding: 88px 0 72px;
+    text-align: left;
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    font-size: 13px; font-weight: 600; letter-spacing: .04em;
+    color: var(--brown);
+    border: 1px solid var(--tan);
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: Unbounded, sans-serif;
+    font-size: clamp(34px, 6vw, 56px);
+    font-weight: 700; line-height: 1.08;
+    max-width: 15ch;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent-current);
+  }
+  .hero p.lede {
+    font-size: 18px; color: var(--muted);
+    max-width: 46ch; margin-bottom: 32px;
+  }
+  .hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .hero .fineprint { font-size: 13px; color: var(--muted); }
+
+  .btn {
+    display: inline-block;
+    font: 600 16px/1 Onest, sans-serif;
+    padding: 16px 28px;
+    border-radius: 12px;
+    border: 0; cursor: pointer;
+    transition: background .15s ease, transform .05s ease;
+  }
+  .btn-accent { background: var(--accent-current); color: #fff; }
+  .btn-accent:hover { background: var(--accent-hover); }
+  .btn-accent:active { transform: translateY(1px); }
+  .btn:focus-visible { outline: 2px solid var(--accent-current); outline-offset: 3px; }
+  .btn-ghost {
+    background: transparent; color: var(--brown);
+    border: 1px solid var(--line-strong);
+  }
+  .btn-ghost:hover { background: var(--surface); }
+
+  /* schedule strip — honey moment on dark */
+  .schedule {
+    margin-top: 48px;
+    background: var(--espresso);
+    border-radius: 18px;
+    padding: 28px 32px;
+    display: flex; gap: 40px; flex-wrap: wrap; align-items: center;
+    color: var(--paper);
+  }
+  .schedule .step { display: flex; flex-direction: column; gap: 2px; }
+  .schedule .step b {
+    font-family: Unbounded, sans-serif;
+    font-size: 30px; font-weight: 800; line-height: 1;
+    color: var(--honey);
+  }
+  .schedule .step span { font-size: 13px; color: var(--tan); }
+  .schedule .arrow { color: var(--line-strong); font-size: 22px; }
+  .schedule .note { margin-left: auto; font-size: 13px; color: var(--tan); max-width: 22ch; }
+
+  /* ---------- swatches ---------- */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+    gap: 12px;
+  }
+  .sw {
+    border-radius: 14px;
+    min-height: 120px;
+    padding: 14px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    font-size: 12px; line-height: 1.4;
+    border: 1px solid rgba(34,27,20,.06);
+  }
+  .sw b { font-size: 13px; font-weight: 600; display: block; }
+  .sw .meta { opacity: .75; }
+
+  /* ---------- accent candidates ---------- */
+  .accents { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .acc-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--tan);
+    background: var(--surface);
+  }
+  .acc-fill { height: 96px; display: flex; align-items: flex-end; padding: 14px; color: #fff; font-size: 13px; }
+  .acc-body { padding: 18px; }
+  .acc-body h3 { font: 700 17px Unbounded, sans-serif; margin-bottom: 6px; }
+  .acc-body .spec { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .acc-body .btn { padding: 12px 20px; font-size: 15px; }
+  .acc-pick { margin-top: 10px; font-size: 13px; }
+  .acc-pick button {
+    font: 500 13px Onest, sans-serif;
+    background: var(--tan); color: var(--ink);
+    border: 0; border-radius: 8px; padding: 7px 12px; cursor: pointer;
+  }
+  .acc-pick button.on { background: var(--ink); color: var(--paper); }
+
+  /* ---------- dark section demo ---------- */
+  .dark-demo {
+    background: var(--espresso);
+    border-radius: 20px;
+    padding: 40px;
+    color: var(--paper);
+  }
+  .dark-demo h3 {
+    font: 700 26px Unbounded, sans-serif;
+    margin-bottom: 10px;
+  }
+  .dark-demo > p { color: var(--tan); max-width: 52ch; margin-bottom: 28px; }
+  .dark-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .dark-card {
+    background: var(--espresso-soft);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .dark-card .price {
+    font: 800 24px Unbounded, sans-serif;
+    color: var(--honey);
+    margin: 8px 0 4px;
+  }
+  .dark-card .desc { font-size: 13px; color: var(--tan); }
+  .dark-card .name { font-weight: 600; }
+  .dark-demo .btn-accent { margin-top: 26px; }
+
+  /* ---------- lot cards (single-accent discipline) ---------- */
+  .lots { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .lot {
+    background: var(--surface);
+    border: 1px solid var(--tan);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .lot .chip {
+    display: inline-block;
+    font-size: 12px; font-weight: 500;
+    background: var(--tan); color: var(--brown);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+  .lot h4 { font: 600 16px Onest, sans-serif; margin-bottom: 4px; }
+  .lot .origin { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .lot .row { display: flex; align-items: center; justify-content: space-between; }
+  .lot .price { font: 800 20px Unbounded, sans-serif; color: var(--accent-current); }
+  .lot .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+
+  /* ---------- form states ---------- */
+  .form-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .field input, .field select {
+    width: 100%;
+    font: 400 16px Onest, sans-serif;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .field input::placeholder { color: var(--muted); }
+  .field input:focus {
+    outline: 2px solid var(--accent-current);
+    outline-offset: 1px;
+    border-color: var(--accent-current);
+  }
+  .field input.bad { border-color: var(--error); }
+  .field .hint { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .field .hint.err {
+    color: var(--error);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .field .hint.err::before { content: "⚠"; }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); }
+  .check input { margin-top: 3px; accent-color: var(--accent-current); }
+
+  .btn[disabled] { background: var(--line-strong); color: var(--surface); cursor: not-allowed; }
+
+  /* ---------- dark hero comparison (variant B) ---------- */
+  .variant-toggle { display: flex; gap: 10px; margin-bottom: 28px; }
+  .variant-toggle button {
+    font: 500 14px Onest, sans-serif;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--line-strong);
+    background: var(--surface); color: var(--ink);
+    cursor: pointer;
+  }
+  .variant-toggle button.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .hero-dark {
+    background: var(--espresso);
+    color: var(--paper);
+    border-radius: 20px;
+    padding: 64px 40px;
+  }
+  .hero-dark .eyebrow {
+    background: var(--espresso-soft); color: var(--tan); border-color: var(--espresso-soft);
+  }
+  .hero-dark h1 em { color: var(--honey); }
+  .hero-dark p.lede { color: var(--tan); }
+  .hero-dark .fineprint { color: var(--tan); }
+  .hero-dark .btn-ghost { color: var(--tan); border-color: var(--espresso-soft); }
+  .hero-dark .btn-ghost:hover { background: var(--espresso-soft); }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 860px) { .compare { grid-template-columns: 1fr; } }
+  .compare .hero, .compare .hero-dark { padding: 40px 28px; border-radius: 16px; }
+  .compare h1 { font-size: 28px; }
+  .compare .schedule { margin-top: 28px; padding: 20px; gap: 24px; }
+  .compare .schedule .note { display: none; }
+
+  /* ---------- footer strip ---------- */
+  footer {
+    background: var(--espresso);
+    color: var(--tan);
+    padding: 40px 0;
+    font-size: 14px;
+  }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+  footer .logo { font: 800 18px Unbounded, sans-serif; letter-spacing: .07em; color: var(--paper); }
+</style>
+</head>
+<body>
+
+<!-- ============ DEMO HERO (dark, locked) ============ -->
+<header class="hero hero-dark" style="border-radius:0;padding:88px 0 72px">
+  <div class="wrap">
+    <span class="eyebrow">Обжарка «Кварта» · Минск · с 2019</span>
+    <h1>Жарим по четвергам — <em>в пятницу у вас</em></h1>
+    <p class="lede">Маленькие партии по 5 кг. Зерно уходит к вам на 1–3 день после обжарки. Подписка или разовый заказ — менеджер перезвонит и всё оформит.</p>
+    <div class="cta-row">
+      <button class="btn btn-accent">Оформить подписку</button>
+      <button class="btn btn-ghost">Смотреть лоты</button>
+      <span class="fineprint">Доставка по Минску в пятницу, от 50 BYN — бесплатно</span>
+    </div>
+
+    <div class="schedule" style="background:var(--espresso-soft)">
+      <div class="step"><b>ЧТ</b><span>обжарка</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>ПТ</b><span>доставка по Минску</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>1–3</b><span>день от обжарки до чашки</span></div>
+      <div class="note">Свежесть — это про цифры, а не эпитеты</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 1. TOKENS ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">01 · Foundation</div>
+    <h2 class="sec-title">Token palette</h2>
+    <p class="sec-note">Eight base tokens + five working states. All contrast pairs verified against <strong>WCAG AA/AAA</strong>. Hover a swatch to see its role.</p>
+    <div class="swatches">
+      <div class="sw" style="background:#F7F3EA"><b>--paper</b><span class="meta">#F7F3EA · page bg</span></div>
+      <div class="sw" style="background:#FFFDF8"><b>--surface</b><span class="meta">#FFFDF8 · cards</span></div>
+      <div class="sw" style="background:#E7D8C8"><b>--tan</b><span class="meta">#E7D8C8 · dividers</span></div>
+      <div class="sw" style="background:#C9B49A;color:#221B14"><b>--line-strong</b><span class="meta">#C9B49A · inputs ≥3:1</span></div>
+      <div class="sw" style="background:#6B4429;color:#fff"><b>--brown</b><span class="meta">#6B4429 · links 7.6:1</span></div>
+      <div class="sw" style="background:#6E6155;color:#fff"><b>--muted</b><span class="meta">#6E6155 · hints</span></div>
+      <div class="sw" style="background:#221B14;color:#F7F3EA"><b>--ink</b><span class="meta">#221B14 · text 15.4:1</span></div>
+      <div class="sw" style="background:#2A1F17;color:#F7F3EA"><b>--espresso</b><span class="meta">#2A1F17 · dark blocks</span></div>
+      <div class="sw" style="background:#3A2C21;color:#F7F3EA"><b>--espresso-soft</b><span class="meta">#3A2C21 · cards on dark</span></div>
+      <div class="sw" style="background:#C05621;color:#fff"><b>--accent</b><span class="meta">#C05621 · CTA · white 4.6:1</span></div>
+      <div class="sw" style="background:#D99A2B;color:#2A1F17"><b>--honey</b><span class="meta">#D99A2B · dark only 6.6:1</span></div>
+      <div class="sw" style="background:#9B2C2C;color:#fff"><b>--error</b><span class="meta">#9B2C2C · + иконка</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ACCENT A/B/C ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">02 · Locked</div>
+    <h2 class="sec-title">Accent — burnt orange <code>#C05621</code></h2>
+    <p class="sec-note"><strong>Winner: C.</strong> Rule for later revisions: never brighten it — the muting is what keeps us out of the «alarm red» crowd (<code>#ef5619</code>, <code>#d12328</code>). On cream it's 4.1:1 — large text only (prices in Unbounded 800 ✓); links stay <code>--brown</code>.</p>
+    <div class="accents">
+      <div class="acc-card">
+        <div class="acc-fill" style="background:#B14A2A">#B14A2A</div>
+        <div class="acc-body">
+          <h3>A · Терракота</h3>
+          <div class="spec">Приглушённая глина. Белым 5.4:1 ✓. Текущий фаворит.</div>
+          <button class="btn btn-accent" style="background:#B14A2A">Оформить подписку</button>
+          <div class="acc-pick"><button data-acc="a">Выбрать</button></div>
+        </div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-fill" style="background:#9E3B22">#9E3B22</div>
+        <div class="acc-body">
+          <h3>B · Кирпич</h3>
+          <div class="spec">Глубже и спокойнее. Контраст выше, «тепла» чуть меньше.</div>
+          <button class="btn btn-accent" style="background:#9E3B22">Оформить подписку</button>
+          <div class="acc-pick"><button data-acc="b">Выбрать</button></div>
+        </div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-fill" style="background:#C05621">#C05621</div>
+        <div class="acc-body">
+          <h3>C · Жжёный апельсин ✓</h3>
+          <div class="spec">Энергичный, тёплый, не путается с «тревожным красным». Выбран.</div>
+          <button class="btn btn-accent" style="background:#C05621">Оформить подписку</button>
+          <div class="acc-pick"><button data-acc="c" class="on">Выбрано</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. LIGHT VS DARK HERO ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">03 · Locked</div>
+    <h2 class="sec-title">Hero direction — dark wins</h2>
+    <p class="sec-note"><strong>Locked: dark hero.</strong> Espresso bg, paper headline, honey emphasis, burnt-orange CTA — schedule strip moves to <code>--espresso-soft</code> so honey numbers stay the only signal. Light alternative kept for reference.</p>
+
+    <div class="variant-toggle" id="heroToggle">
+      <button data-hero="dark" class="on">B · Dark hero ✓</button>
+      <button data-hero="light">A · Light-first (rejected)</button>
+    </div>
+
+    <div id="heroStage">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. DARK CONTRAST SECTION ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">04 · Rhythm</div>
+    <h2 class="sec-title">One dark block per page — subscription</h2>
+    <p class="sec-note">Espresso section breaks the cream scroll and gives honey its only stage. Prices stay <strong>honey on dark</strong>; on light sections prices are accent — never both on the same surface.</p>
+    <div class="dark-demo">
+      <h3>Подписка «Кварта»</h3>
+      <p>Две пачки по 250 г раз в месяц. Обжарка по четвергам, доставка в пятницу, доставка бесплатно. Менеджер перезвонит и уточнит, что вам ближе.</p>
+      <div class="dark-cards">
+        <div class="dark-card">
+          <div class="name">Светлая</div>
+          <div class="price">54 BYN / мес</div>
+          <div class="desc">Эфиопия + Колумбия, цветочный и карамельный профиль</div>
+        </div>
+        <div class="dark-card">
+          <div class="name">Тёмная</div>
+          <div class="price">54 BYN / мес</div>
+          <div class="desc">Бразилия + Колумбия, орех и шоколад под эспрессо</div>
+        </div>
+        <div class="dark-card">
+          <div class="name">Ассорти</div>
+          <div class="price">54 BYN / мес</div>
+          <div class="desc">Менеджер подберет под ваш вкус при звонке</div>
+        </div>
+      </div>
+      <button class="btn btn-accent">Оформить подписку</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. LOT CARDS ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">05 · Discipline</div>
+    <h2 class="sec-title">Lot cards — one signal color</h2>
+    <p class="sec-note">Flavor chips stay neutral (tan + brown). Origin dots are 8px accents — the only per-lot color. Price is the single loud element.</p>
+    <div class="lots">
+      <div class="lot">
+        <span class="chip">цветочный · бергамот</span>
+        <h4><span class="dot" style="background:var(--honey)"></span>Эфиопия Иргачеффе</h4>
+        <div class="origin">светлая обжарка · 250 г</div>
+        <div class="row"><span class="price">32 BYN</span></div>
+      </div>
+      <div class="lot">
+        <span class="chip">карамель · красное яблоко</span>
+        <h4><span class="dot" style="background:var(--accent-current)"></span>Колумбия Уила</h4>
+        <div class="origin">средняя обжарка · 250 г</div>
+        <div class="row"><span class="price">29 BYN</span></div>
+      </div>
+      <div class="lot">
+        <span class="chip">орех · шоколад</span>
+        <h4><span class="dot" style="background:var(--brown)"></span>Бразилия Серрадо</h4>
+        <div class="origin">под эспрессо · 250 г</div>
+        <div class="row"><span class="price">26 BYN</span></div>
+      </div>
+      <div class="lot">
+        <span class="chip">для фильтра</span>
+        <h4>Дрип-пакеты, ассорти</h4>
+        <div class="origin">10 штук</div>
+        <div class="row"><span class="price">18 BYN</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. FORM STATES ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">06 · Form</div>
+    <h2 class="sec-title">Field states</h2>
+    <p class="sec-note">Input borders use <strong>--line-strong</strong> (3:1 vs surface) — --tan is decorative only. Error = color + icon + text, never color alone. Focus ring is 2px accent with offset.</p>
+    <div class="form-demo">
+      <div>
+        <div class="field">
+          <label for="f-name">Имя</label>
+          <input id="f-name" type="text" placeholder="Как к вам обращаться">
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон</label>
+          <input id="f-phone" type="tel" placeholder="+375 __ ___ __ __">
+          <div class="hint">Перезвоним в рабочее время: пн–пт 8:00–20:00</div>
+        </div>
+        <div class="field">
+          <label for="f-phone-bad">Телефон — ошибка валидации</label>
+          <input id="f-phone-bad" class="bad" type="tel" value="+375 12 3">
+          <div class="hint err">Введите белорусский номер: +375 XX XXX XX XX</div>
+        </div>
+      </div>
+      <div>
+        <div class="field">
+          <label for="f-what">Что интересует</label>
+          <select id="f-what">
+            <option>Подписка</option>
+            <option>Разовый заказ</option>
+            <option>Вопрос</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-comment">Комментарий</label>
+          <input id="f-comment" type="text" placeholder="Например: хочу попробовать Эфиопию">
+        </div>
+        <label class="check">
+          <input type="checkbox" checked>
+          <span>Согласен на обработку персональных данных</span>
+        </label>
+        <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap">
+          <button class="btn btn-accent">Отправить заявку</button>
+          <button class="btn" disabled>Отправка…</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">КВАРТА</div>
+    <div>Минск, ул. Короля, 9 · пн–пт 8:00–20:00, сб–вс 10:00–18:00</div>
+    <div>Жарим по четвергам — в пятницу у вас</div>
+  </div>
+</footer>
+
+<script>
+  /* ---- accent picker: re-themes the whole page ---- */
+  const accents = { a: '#B14A2A', b: '#9E3B22', c: '#C05621' };
+  const hovers  = { a: '#9A3E22', b: '#8A331D', c: '#A3481B' };
+  document.querySelectorAll('[data-acc]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.acc;
+      document.documentElement.style.setProperty('--accent-current', accents[key]);
+      document.documentElement.style.setProperty('--accent-hover', hovers[key]);
+      document.querySelectorAll('[data-acc]').forEach(b => {
+        b.classList.toggle('on', b === btn);
+        b.textContent = b === btn ? 'Выбрано' : 'Выбрать';
+      });
+    });
+  });
+
+  /* ---- hero A/B ---- */
+  const heroLight = `
+    <div class="hero" style="border-radius:20px;padding:64px 40px">
+      <span class="eyebrow">Обжарка «Кварта» · Минск · с 2019</span>
+      <h1>Жарим по четвергам — <em>в пятницу у вас</em></h1>
+      <p class="lede">Маленькие партии по 5 кг. Зерно уходит к вам на 1–3 день после обжарки.</p>
+      <div class="cta-row">
+        <button class="btn btn-accent">Оформить подписку</button>
+        <button class="btn btn-ghost">Смотреть лоты</button>
+      </div>
+      <div class="schedule">
+        <div class="step"><b>ЧТ</b><span>обжарка</span></div>
+        <div class="arrow">→</div>
+        <div class="step"><b>ПТ</b><span>доставка</span></div>
+        <div class="arrow">→</div>
+        <div class="step"><b>1–3</b><span>день до чашки</span></div>
+      </div>
+    </div>`;
+  const heroDark = `
+    <div class="hero-dark">
+      <span class="eyebrow">Обжарка «Кварта» · Минск · с 2019</span>
+      <h1 style="font-family:Unbounded,sans-serif;font-size:clamp(30px,5vw,48px);font-weight:700;line-height:1.08;max-width:15ch;margin-bottom:20px">Жарим по четвергам — <em style="font-style:normal;color:var(--honey)">в пятницу у вас</em></h1>
+      <p class="lede" style="font-size:17px;max-width:46ch;margin-bottom:30px">Маленькие партии по 5 кг. Зерно уходит к вам на 1–3 день после обжарки.</p>
+      <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap">
+        <button class="btn btn-accent">Оформить подписку</button>
+        <button class="btn btn-ghost">Смотреть лоты</button>
+      </div>
+      <div class="schedule" style="background:var(--espresso-soft)">
+        <div class="step"><b>ЧТ</b><span>обжарка</span></div>
+        <div class="arrow">→</div>
+        <div class="step"><b>ПТ</b><span>доставка</span></div>
+        <div class="arrow">→</div>
+        <div class="step"><b>1–3</b><span>день до чашки</span></div>
+      </div>
+    </div>`;
+
+  const stage = document.getElementById('heroStage');
+  function setHero(mode) {
+    stage.innerHTML = mode === 'dark' ? heroDark : heroLight;
+    document.querySelectorAll('#heroToggle button').forEach(b =>
+      b.classList.toggle('on', b.dataset.hero === mode));
+  }
+  document.querySelectorAll('#heroToggle button').forEach(b =>
+    b.addEventListener('click', () => setHero(b.dataset.hero)));
+  setHero('dark');
+</script>
+</body>
+</html>

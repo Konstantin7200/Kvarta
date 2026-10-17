@@ -19,22 +19,40 @@
 - Serif direction (Oranienbaum, Prata, Yeseva One, Alegreya) — high-contrast serifs read "newspaper/premium gloss", against «тёплый и простой»
 - Nunito — body too thin vs Onest (user); El Messiri, Dela Gothic One — not selected
 
-## Colors — PROPOSED (from unat/nico/rand warm direction)
+## Colors — LOCKED (dark hero + burnt orange)
+
+### Base
 | Role | Hex | Contrast |
 |---|---|---|
 | `--paper` page bg | `#F7F3EA` | — |
 | `--surface` cards | `#FFFDF8` | — |
 | `--ink` text | `#221B14` | 15.4:1 on paper ✓ AAA |
-| `--espresso` dark sections | `#2A1F17` | paper on it 14.5:1 ✓ |
+| `--espresso` dark sections + hero | `#2A1F17` | paper on it 14.5:1 ✓ |
+| `--espresso-soft` cards on dark | `#3A2C21` | paper on it 12.1:1 ✓ |
 | `--brown` secondary/links | `#6B4429` | 7.6:1 ✓ |
+| `--muted` hints/captions | `#6E6155` | — |
 | `--tan` borders/alt bg | `#E7D8C8` | ink on it 12.5:1 ✓ |
-| `--accent` CTA/price | `#B14A2A` | 4.9:1 on paper ✓, white on it ✓ |
-| `--honey` accent on dark only | `#D99A2B` | 6.6:1 on espresso ✓ (2.2 on cream ✗) |
+| `--line-strong` input borders | `#C9B49A` | ≥3:1 vs surface ✓ |
 
-Pending: light-first vs dark hero; final accent confirmation.
+### Accent — burnt orange `#C05621`
+| Role | Hex | Contrast |
+|---|---|---|
+| `--accent` CTA/price | `#C05621` | white on it 4.6:1 ✓ AA; on paper 4.1:1 — **large text only** (≥18.66px bold / prices in Unbounded 800 ✓); links stay `--brown` |
+| `--accent-hover` | `#A3481B` | white on it ✓ |
+| `--accent-active` | `#8F3E17` | white on it ✓ |
+| `--honey` dark sections only | `#D99A2B` | 6.6:1 on espresso ✓, 5.5:1 on espresso-soft ✓ (2.2 on cream ✗ — never on paper) |
+| `--error` + icon + text | `#9B2C2C` | never color alone |
+
+### Layout rhythm — LOCKED
+- **Dark hero** (espresso): headline paper, emphasis word honey, CTA burnt orange w/ white
+- Light middle (paper): lots, how-it-works, form
+- **One dark contrast block**: subscription (espresso, prices honey)
+- Footer espresso
+- Honey on a dark surface: schedule numbers + prices only — max 2–3 moments per screen; if burnt orange is also on screen, honey goes to numbers only (no honey emphasis text next to orange CTA)
 
 ## Reference material
 - `links.md` — 16 similar sites
 - `analysis.md` — comparative analysis (structure, palette, forms, stacks)
 - `font-specimen.html` — rejected candidates archive
 - `font-pairing.html` — final pairing mocks A/B (B = Unbounded + Onest = chosen)
+- `color-mock.html` — color showcase; defaults reflect locked decisions (dark hero + `#C05621`), A/B accent picker kept for reference
