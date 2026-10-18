@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 function loadLocalEnv() {
-  const path = join(root, ".env.local");
+  const path = join(root, ".env");
   if (!existsSync(path)) return;
   for (const line of readFileSync(path, "utf8").split("\n")) {
     const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
@@ -29,7 +29,7 @@ loadLocalEnv();
 const url = process.env.DATABASE_URL?.trim();
 if (!url) {
   console.error(
-    "DATABASE_URL is not set. Заполните kvarta-web/.env.local или переменные Vercel.",
+    "DATABASE_URL is not set. Заполните kvarta-web/.env или переменные Vercel.",
   );
   process.exit(1);
 }

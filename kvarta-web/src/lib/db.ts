@@ -27,7 +27,7 @@ export function getDb(): Client {
   const url = process.env.DATABASE_URL?.trim();
   if (!url) {
     throw new ConfigError(
-      "DATABASE_URL is not set — скопируйте .env.example в .env.local",
+      "DATABASE_URL is not set — скопируйте .env.example в .env",
     );
   }
   const remote = url.startsWith("libsql:") || url.startsWith("https:");

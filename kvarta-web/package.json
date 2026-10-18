@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "leads": "node --env-file-if-exists=.env.local scripts/leads.mjs"
+    "leads": "node --env-file-if-exists=.env scripts/leads.mjs",
+    "telegram:setup": "node --env-file-if-exists=.env scripts/telegram-setup.mjs"
   },
   "dependencies": {
     "@libsql/client": "^0.18.0",

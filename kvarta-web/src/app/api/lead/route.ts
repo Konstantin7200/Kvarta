@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { ConfigError, initDb } from "@/lib/db";
+import { notifyLeadTelegram } from "@/lib/telegram";
 import { MAX_BODY_BYTES } from "@/lib/constants";
 import {
   addLead,
@@ -98,6 +99,10 @@ export async function POST(req: Request) {
   try {
     await initDb();
     const result = await addLead(lead);
+    if (!result.duplicate && result.id !== null) {
+      const { id } = result;
+      after(() => notifyLeadTelegram(id, lead));
+    }
     return NextResponse.json(result, { status: 200 });
   } catch (err) {
     if (err instanceof ConfigError) {
