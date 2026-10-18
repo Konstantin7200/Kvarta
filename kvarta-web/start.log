@@ -1,0 +1,14 @@
+
+> kvarta-web@0.1.0 start
+> next start
+
+▲ Next.js 16.4.2
+- Local:         http://localhost:4321
+- Network:       http://26.160.207.184:4321
+✓ Ready in 202ms
+✓ Running next.config.ts took 51ms
+[lead] origin rejected: none
+[lead] origin rejected: https://evil.com
+[lead] config: DATABASE_URL is not set — скопируйте .env.example в .env.local
+[lead] origin rejected: https://evil.com
+[lead] config: DATABASE_URL is not set — скопируйте .env.example в .env.local

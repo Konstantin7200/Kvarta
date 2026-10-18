@@ -72,6 +72,9 @@ Vercel у инстанса нет постоянного диска — запи
 `DATABASE_URL` и `DATABASE_AUTH_TOKEN`, клиент `@libsql/client`,
 одни и те же запросы локально и в проде.
 
+Отчёт по источникам — команда `npm run leads` (CLI-скрипт в репозитории;
+публичного GET-эндпоинта нет, чтобы не светить заявки).
+
 ## Допущения
 
 - **Защита эндпоинта:** список разрешённых доменов читается из
@@ -84,6 +87,18 @@ Vercel у инстанса нет постоянного диска — запи
   на клиенте и складываются в тело заявки — бриф требует, чтобы
   менеджер знал, откуда пришёл клиент.
 
+Поля атрибуции в заявке (хранятся в одной JSON-колонке `origin`):
+
+| Поле | Значение | Пример |
+|---|---|---|
+| `source` | откуда трафик | `instagram`, `google` |
+| `medium` | тип канала | `cpc`, `social`, `email` |
+| `campaign` | кампания | `winter-sub` |
+| `content` | вариант креатива (A/B) | `video`, `photo-1kg` |
+| `term` | ключевое слово из поисковой рекламы | `кофе подписка` |
+| `page` | URL, на котором открыта форма (обязателен) | `https://…/?utm_source=…` |
+| `referrer` | внешняя страница-источник, если utm нет | `https://t.me/…` |
+
 ## Структура репозитория
 
 - `kvarta-web/` — Next.js-приложение (сайт, эндпоинт)
@@ -95,19 +110,32 @@ Vercel у инстанса нет постоянного диска — запи
 
 ```bash
 cd kvarta-web
-cp .env.example .env.local   # заполнить: DATABASE_URL + домен после деплоя
+cp .env.example .env.local   # заполнить: DATABASE_URL, DATABASE_AUTH_TOKEN, ALLOWED_ORIGINS
 npm install
 npm run dev                   # http://localhost:3000
 npm run build                 # проверка статической сборки
 ```
 
-Для проверки эндпоинта локально:
+Для проверки эндпоинта локально (валидная заявка; `origin.page`
+обязателен — из него менеджер видит, откуда пришёл клиент):
 
 ```bash
 curl -X POST http://localhost:3000/api/lead \
   -H "Content-Type: application/json" \
   -H "Origin: http://localhost:3000" \
-  -d '{"name":"Тест","phone":"+375291234567","interest":"subscription"}'
+  -d '{"name":"Тест","phone":"+375291234567","interest":"subscription","consent":true,"origin":{"page":"http://localhost:3000/"}}'
+```
+
+Ответы: `200` — принято (в т.ч. дубль за 10 минут), `400` — ошибка
+поля (в `field` — какое), `403` — домен не в `ALLOWED_ORIGINS`,
+`503` — не заданы переменные окружения (подробности — в логах сервера).
+
+Отчёт по заявкам (нужен заполненный `DATABASE_URL`):
+
+```bash
+npm run leads                          # все заявки, сгруппированы по источнику
+npm run leads instagram                # только источник instagram
+npm run leads instagram winter-sub     # источник + кампания
 ```
 
 ## Чем это было сделано
