@@ -16,10 +16,29 @@ const onest = Onest({
   display: "swap",
 });
 
+const SITE_TITLE = "Кварта — свежая обжарка кофе в Минске";
+const SITE_DESCRIPTION =
+  "Обжарка «Кварта», Минск: жарим по четвергам партиями по 5 кг — привозим в пятницу. Лоты по 250 г, дрип-пакеты, подписка. Зерно на 1–3 день после обжарки.";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL!;
+
 export const metadata: Metadata = {
-  title: "Кварта — свежая обжарка кофе в Минске",
-  description:
-    "Обжарка «Кварта», Минск: жарим по четвергам партиями по 5 кг — привозим в пятницу. Лоты по 250 г, дрип-пакеты, подписка. Зерно на 1–3 день после обжарки.",
+  metadataBase: new URL(siteUrl),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    siteName: "Кварта",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
