@@ -42,6 +42,7 @@ const inputClass =
 export function LeadForm() {
   const [pending, setPending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
@@ -53,8 +54,7 @@ export function LeadForm() {
       >
         <h3 className="font-display text-xl font-bold">Заявка принята</h3>
         <p className="mt-3 text-muted">
-          Менеджер перезванивает в рабочее время и оформляет заказ —
-          всё просто, без корзины и онлайн-оплаты.
+          Менеджер вам перезвонит, чтобы договариться о деталях.
         </p>
       </div>
     );
@@ -199,7 +199,7 @@ export function LeadForm() {
         <label htmlFor="comment" className="block text-sm font-medium">
           Комментарий{" "}
           <span className="font-normal text-muted">
-            (необязательно: способ заваривания, удобное время)
+            (необязательно: удобное время)
           </span>
         </label>
         <textarea
@@ -219,6 +219,8 @@ export function LeadForm() {
           type="checkbox"
           name="consent"
           required
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
           className="mt-1 accent-accent"
         />
         <span>
@@ -232,7 +234,7 @@ export function LeadForm() {
 
       <button
         type="submit"
-        disabled={pending}
+        disabled={pending || !consent}
         className="mt-8 w-full rounded-full bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {pending ? "Отправляем…" : "Отправить заявку"}

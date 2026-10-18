@@ -8,7 +8,7 @@ const contacts = [
 
 export function ContactSection() {
   return (
-    <section id="zayavka" className="border-t border-tan bg-tan/40">
+    <section id="zayavka" className="scroll-mt-20 border-t border-tan bg-tan/40">
       <div className="mx-auto max-w-5xl px-5 py-20 md:py-28">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -16,8 +16,7 @@ export function ContactSection() {
               Оставить заявку
             </h2>
             <p className="mt-4 text-muted">
-              Оформляет менеджер — перезванивает и договаривается о
-              деталях. Корзины и онлайн-оплаты нет, всё просто.
+              Менеджер вам перезвонит, чтобы договариться о деталях.
             </p>
             <ul className="mt-8 space-y-3 text-sm">
               {contacts.map((c) => (

@@ -17,7 +17,10 @@ const cards = [
 
 export function Delivery() {
   return (
-    <section id="dostavka" className="mx-auto max-w-5xl px-5 py-20 md:py-28">
+    <section
+      id="dostavka"
+      className="scroll-mt-20 mx-auto max-w-5xl px-5 py-20 md:py-28"
+    >
       <h2 className="font-display text-3xl font-bold md:text-4xl">
         Доставка и самовывоз
       </h2>

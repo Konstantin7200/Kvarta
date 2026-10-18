@@ -1,7 +1,11 @@
+import Image from "next/image";
+
 export function Subscription() {
   return (
-    <section id="podpiska" className="bg-espresso text-paper">
+    <section id="podpiska" className="scroll-mt-20 bg-espresso text-paper">
       <div className="mx-auto max-w-5xl px-5 py-20 md:py-28">
+        <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-16">
+        <div>
         <h2 className="font-display text-3xl font-bold md:text-4xl">
           Подписка
         </h2>
@@ -32,6 +36,17 @@ export function Subscription() {
         >
           Оформить подписку
         </a>
+        </div>
+
+        <Image
+          src="/images/img3.jpg"
+          alt="Чашка свежесваренного кофе с поднимающимся паром"
+          width={1600}
+          height={2400}
+          sizes="(min-width: 768px) 468px, calc(100vw - 40px)"
+          className="aspect-[4/3] w-full rounded-2xl object-cover"
+        />
+        </div>
       </div>
     </section>
   );

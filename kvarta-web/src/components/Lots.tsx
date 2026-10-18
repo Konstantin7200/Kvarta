@@ -31,7 +31,7 @@ const lots = [
 
 export function Lots() {
   return (
-    <section id="loty" className="border-t border-tan">
+    <section id="loty" className="scroll-mt-20 border-t border-tan">
       <div className="mx-auto max-w-5xl px-5 py-20 md:py-28">
         <h2 className="font-display text-3xl font-bold md:text-4xl">
           Что обжариваем
