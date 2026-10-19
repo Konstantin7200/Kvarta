@@ -31,7 +31,7 @@ function originLine(lead: NewLead): string {
 
 export function formatLeadMessage(id: number, lead: NewLead): string {
   const lines = [
-    `<b>☕ Новая заявка #${id}</b>`,
+    `<b>Новая заявка #${id}</b>`,
     ``,
     `<b>Имя:</b> ${escapeHtml(lead.name)}`,
     `<b>Телефон:</b> ${escapeHtml(lead.phone)}`,

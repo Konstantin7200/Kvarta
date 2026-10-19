@@ -54,7 +54,7 @@ export function LeadForm() {
       >
         <h3 className="font-display text-xl font-bold">Заявка принята</h3>
         <p className="mt-3 text-muted">
-          Менеджер вам перезвонит, чтобы договариться о деталях.
+          Менеджер вам перезвонит, чтобы договориться о деталях.
         </p>
       </div>
     );
@@ -143,6 +143,7 @@ export function LeadForm() {
           <input
             id="name"
             name="name"
+            type="text"
             required
             minLength={2}
             maxLength={100}

@@ -26,7 +26,7 @@ export function Subscription() {
           <ul className="mt-6 space-y-2 text-sm text-paper/80">
             <li>Два лота на выбор</li>
             <li>Доставка по Минску бесплатно</li>
-            <li>Пауза и отмена — в одно сообщение, без штрафов</li>
+            <li>Пауза и отмена — одним сообщением, без штрафов</li>
           </ul>
         </div>
 

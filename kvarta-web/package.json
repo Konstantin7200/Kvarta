@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "leads": "node --env-file-if-exists=.env scripts/leads.mjs",
+    "db:clear": "node --env-file-if-exists=.env scripts/clear-db.mjs",
     "telegram:setup": "node --env-file-if-exists=.env scripts/telegram-setup.mjs"
   },
   "dependencies": {

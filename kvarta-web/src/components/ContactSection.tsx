@@ -16,7 +16,7 @@ export function ContactSection() {
               Оставить заявку
             </h2>
             <p className="mt-4 text-muted">
-              Менеджер вам перезвонит, чтобы договариться о деталях.
+              Менеджер вам перезвонит, чтобы договориться о деталях.
             </p>
             <ul className="mt-8 space-y-3 text-sm">
               {contacts.map((c) => (
